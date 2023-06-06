@@ -5,3 +5,6 @@ django-filter
 drf-yasg
 Pillow
 requests
+django-cors-headers
+djangorestframework_simplejwt
+django-guardian

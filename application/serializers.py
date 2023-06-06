@@ -65,10 +65,3 @@ class OrderDetailSerializer(serializers.ModelSerializer):
         model = OrderDetail
         fields = ("id", "order", "product", "count", "total_sum",)
 
-
-class CategoryAndProductSerializer(serializers.ModelSerializer):
-    products = DessertSerializer(many=True)
-
-    class Meta:
-        model = Category
-        fields = ("id", "name", "products",)
