@@ -5,6 +5,7 @@ from .views import *
 
 urlpatterns = [
     path('token/', views.obtain_auth_token),
+    path('get-role/', GetRole.as_view()),
     path('user/', UserApiView.as_view()),
     path('user/<int:pk>', UserApiViewUpdateDelete.as_view()),
     path('category/', CategoryApiView.as_view()),

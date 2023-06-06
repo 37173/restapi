@@ -24,7 +24,7 @@ class Category(models.Model):
 class Dessert(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование')
     price = models.IntegerField(verbose_name='Цена')
-    image = models.ImageField(upload_to='product', verbose_name='Фото')
+    image = models.ImageField(upload_to='product/%Y-%m-%d/', verbose_name='Фото')
     category = models.ForeignKey(Category, related_name='category', on_delete=models.CASCADE, verbose_name='Категория')
     description = models.CharField(max_length=300, null=True, verbose_name='Описание')
 
@@ -42,9 +42,17 @@ class Client(models.Model):
     patronymic = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
 
+    class Meta:
+        verbose_name = 'Клиент'
+        verbose_name_plural = 'Клиенты'
+
 
 class Pay(models.Model):
     name = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name = 'Способ оплаты'
+        verbose_name_plural = 'Способы оплаты'
     
     def __str__(self):
         return f'{self.id} - {self.name}'
